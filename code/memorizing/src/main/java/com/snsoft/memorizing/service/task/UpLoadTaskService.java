@@ -3,7 +3,7 @@ package com.snsoft.memorizing.service.task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.snsoft.memorizing.mapper.task.UpLoadMapper;
+import com.snsoft.memorizing.mapper.task.UpLoadTaskMapper;
 
 /**
  * 
@@ -13,16 +13,16 @@ import com.snsoft.memorizing.mapper.task.UpLoadMapper;
  * 
  * @version 1.0
  * 
- * @date 2019年4月27日下午8:05:48
+ * @date 2019年4月28日上午10:18:59
  * 
- * @Description TODO 上传接口Service
+ * @Description TODO 上传任务接口Service
  */
 @Service
-public class UpLoadService {
+public class UpLoadTaskService {
 	@Autowired(required = false)
-	UpLoadMapper mapper;
+	UpLoadTaskMapper mapper;
 
-	public int upLoad(int file, String filename, int type) {
-		return mapper.upLoad(file, filename, type);
+	public int upLoadTask(String content, int file) {
+		return mapper.upLoadTask(content, file);
 	}
 }

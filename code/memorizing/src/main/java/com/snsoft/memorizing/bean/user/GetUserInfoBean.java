@@ -1,7 +1,6 @@
 package com.snsoft.memorizing.bean.user;
 /**
  * 
- * 
  * @copyright ：神农大学生软件创新中心 版权所有 © 2019
  * 
  * @author 17计算机 杜嘉慧

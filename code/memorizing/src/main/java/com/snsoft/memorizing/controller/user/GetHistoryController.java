@@ -39,7 +39,7 @@ public class GetHistoryController {
 			List<GetTaskInfoBean> taskInfo = service.getHistory(session.getAttribute("loginmark").toString());
 //			if (taskInfo == null) {
 //				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败了");
-			// }
+//			 }
 //				else {
 //			List list=new ArrayList();
 //			list.add(taskInfo.getId());
