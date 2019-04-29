@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.snsoft.memorizing.bean.user.GetUserInfoBean;
+import com.snsoft.memorizing.bean.task.GetUserRankingInfoBean;
 
 /**
  * 
@@ -21,5 +21,5 @@ import com.snsoft.memorizing.bean.user.GetUserInfoBean;
 public interface GetUserRankingMapper {
 
 	@Select("SELECT account,nickname,score FROM user WHERE account=#{account}")
-	public List<GetUserInfoBean> getUserRanking(String account);
+	public List<GetUserRankingInfoBean> getUserRanking(String account);
 }

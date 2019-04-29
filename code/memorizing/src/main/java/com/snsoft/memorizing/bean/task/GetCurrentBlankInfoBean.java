@@ -10,7 +10,7 @@ package com.snsoft.memorizing.bean.task;
  * 
  * @date 2019年4月28日下午9:16:59
  * 
- * @Description TODO 获取当前任务填空题信息接口 返回Bean
+ * @Description TODO 获取当前任务填空题信息 返回Bean
  */
 public class GetCurrentBlankInfoBean {
 	private int id;

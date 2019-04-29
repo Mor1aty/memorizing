@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.snsoft.memorizing.bean.task.GetAllTaskInfoBean;
 import com.snsoft.memorizing.mapper.task.GetAllTaskMapper;
 
 /**
@@ -24,7 +25,7 @@ public class GetAllTaskService {
 	@Autowired(required = false)
 	GetAllTaskMapper mapper;
 
-	public List getAllTask(String account) {
+	public List<GetAllTaskInfoBean> getAllTask(String account) {
 		return mapper.getAllTask(account);
 	}
 }

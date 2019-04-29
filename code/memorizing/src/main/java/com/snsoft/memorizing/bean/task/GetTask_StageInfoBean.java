@@ -10,7 +10,7 @@ package com.snsoft.memorizing.bean.task;
  * 
  * @date 2019年4月28日下午7:40:41
  * 
- * @Description TODO 获取阶段任务接口 返回Bean
+ * @Description TODO 获取阶段任务信息 返回Bean
  */
 public class GetTask_StageInfoBean {
 	private int id;

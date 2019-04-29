@@ -1,8 +1,6 @@
 package com.snsoft.memorizing.controller.task;
 
 import java.util.HashMap;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snsoft.memorizing.bean.task.GetTask_StageInfoBean;
+import com.snsoft.memorizing.bean.task.GetCurrentSmallTaskInfoBean;
 import com.snsoft.memorizing.service.task.GetCurrentSmallTaskService;
 import com.snsoft.memorizing.utils.AllConstant;
 import com.snsoft.memorizing.utils.HttpUtil;
@@ -48,7 +46,7 @@ public class GetCurrentSmallTaskController<E> {
 				return result;
 			}
             
-			List<GetTask_StageInfoBean> list= service.getCurrentSmallTask(Integer.parseInt(params.get("task")));
+			GetCurrentSmallTaskInfoBean list= service.getCurrentSmallTask(Integer.parseInt(params.get("task")));
 
 			result = JsonUtil.jsonResponse(list, AllConstant.CODE_SUCCESS, "获取成功");
 		} catch (Exception e) {

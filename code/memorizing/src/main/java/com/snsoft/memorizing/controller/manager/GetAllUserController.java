@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snsoft.memorizing.bean.manager.GetManagerInfoBean;
+import com.snsoft.memorizing.bean.user.GetUserInfoBean;
 import com.snsoft.memorizing.service.manager.GetAllUserService;
 import com.snsoft.memorizing.utils.AllConstant;
 import com.snsoft.memorizing.utils.JsonUtil;
@@ -37,7 +37,7 @@ public class GetAllUserController {
 		String result = "";
 		try {
 
-			List<GetManagerInfoBean> list = service.getAllUser(session.getAttribute("loginmark").toString());
+			List<GetUserInfoBean> list = service.getAllUser(session.getAttribute("loginmark").toString());
 			if (list == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_SUCCESS, "获取用户失败");
 			} else {

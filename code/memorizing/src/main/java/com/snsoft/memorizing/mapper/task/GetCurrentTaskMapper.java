@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.snsoft.memorizing.bean.task.GetCurrentBlankInfoBean;
+import com.snsoft.memorizing.bean.task.GetCurrentTaskInfoBean;
 
 /**
  * 
@@ -19,6 +19,6 @@ import com.snsoft.memorizing.bean.task.GetCurrentBlankInfoBean;
  * @Description TODO 获取当前任务接口Mapper
  */
 public interface GetCurrentTaskMapper {
-	@Select("SELECT task.id,content,file,task.gmt_create FROM task LEFT JOIN history ON history.task=task.id WHERE history.user=#{account} AND history.is_finish=0")
-	public List<GetCurrentBlankInfoBean> getCurrentTask(String account);
+	@Select("SELECT task.id,task.content,task.file,task.gmt_create FROM task LEFT JOIN user ON user.task=task.id WHERE user.account=#{account} ")
+	public List<GetCurrentTaskInfoBean> getCurrentTask(String account);
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.snsoft.memorizing.bean.manager.GetManagerInfoBean;
+import com.snsoft.memorizing.bean.user.GetUserInfoBean;
 import com.snsoft.memorizing.mapper.manager.GetAllUserMapper;
 
 /**
@@ -25,7 +25,7 @@ public class GetAllUserService {
 	@Autowired(required = false)
 	GetAllUserMapper mapper;
 
-	public List<GetManagerInfoBean> getAllUser(String account) {
+	public List<GetUserInfoBean> getAllUser(String account) {
 		int i = mapper.isManager(account);
 		if (i > 0) {
 			return mapper.getAllUser();

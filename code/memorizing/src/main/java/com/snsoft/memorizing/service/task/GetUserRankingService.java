@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.snsoft.memorizing.bean.user.GetUserInfoBean;
+import com.snsoft.memorizing.bean.task.GetUserRankingInfoBean;
 import com.snsoft.memorizing.mapper.task.GetUserRankingMapper;
 
 /**
@@ -25,7 +25,7 @@ public class GetUserRankingService {
 	@Autowired(required = false)
 	GetUserRankingMapper mapper;
 
-	public List<GetUserInfoBean> getUserRanking(String account) {
+	public List<GetUserRankingInfoBean> getUserRanking(String account) {
 		return mapper.getUserRanking(account);
 	}
 }

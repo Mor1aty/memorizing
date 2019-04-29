@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snsoft.memorizing.bean.task.GetTaskInfoBean;
+import com.snsoft.memorizing.bean.task.GetHistoryInfoBean;
 import com.snsoft.memorizing.service.user.GetHistoryService;
 import com.snsoft.memorizing.utils.AllConstant;
 import com.snsoft.memorizing.utils.JsonUtil;
@@ -36,18 +36,7 @@ public class GetHistoryController {
 		// 返回结果
 		String result = "";
 		try {
-			List<GetTaskInfoBean> taskInfo = service.getHistory(session.getAttribute("loginmark").toString());
-//			if (taskInfo == null) {
-//				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败了");
-//			 }
-//				else {
-//			List list=new ArrayList();
-//			list.add(taskInfo.getId());
-//			list.add(taskInfo.getIsUse());
-//			list.add(taskInfo.getContent());
-//			list.add(taskInfo.getFile());
-//			list.add(taskInfo.getGmtCreate());
-//			list.add(taskInfo.getGmtEnd());
+			List<GetHistoryInfoBean> taskInfo = service.getHistory(session.getAttribute("loginmark").toString());
 			if (taskInfo == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败");
 			} else {

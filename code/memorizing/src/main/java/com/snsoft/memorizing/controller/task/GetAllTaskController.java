@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.snsoft.memorizing.bean.task.GetAllTaskInfoBean;
 import com.snsoft.memorizing.service.task.GetAllTaskService;
 import com.snsoft.memorizing.utils.AllConstant;
 import com.snsoft.memorizing.utils.JsonUtil;
@@ -35,8 +36,7 @@ public class GetAllTaskController {
 		// 返回结果
 		String result = "";
 		try {
-
-			List list = service.getAllTask(session.getAttribute("loginmark").toString());
+			List<GetAllTaskInfoBean> list = service.getAllTask(session.getAttribute("loginmark").toString());
 			if (list == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败");
 			} else {

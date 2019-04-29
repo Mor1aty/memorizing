@@ -25,7 +25,7 @@ public class GetCurrentBlankService {
 	@Autowired(required = false)
 	GetCurrentBlankMapper mapper;
 
-	public List<GetCurrentBlankInfoBean> getCurrentBlank(int task_stage) {
-		return mapper.getCurrentBlank(task_stage);
+	public List<GetCurrentBlankInfoBean> getCurrentBlank(int task_stage,String account) {
+		return mapper.getCurrentBlank(task_stage,account);
 	}
 }

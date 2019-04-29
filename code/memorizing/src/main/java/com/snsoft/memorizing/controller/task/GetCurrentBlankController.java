@@ -47,7 +47,7 @@ public class GetCurrentBlankController {
 				return result;
 			}
 
-			List<GetCurrentBlankInfoBean> list = service.getCurrentBlank(Integer.parseInt(params.get("task_stage")));
+			List<GetCurrentBlankInfoBean> list = service.getCurrentBlank(Integer.parseInt(params.get("task_stage")),session.getAttribute("loginmark").toString());
 
 			result = JsonUtil.jsonResponse(list, AllConstant.CODE_SUCCESS, "获取成功");
 		} catch (Exception e) {

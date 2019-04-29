@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.snsoft.memorizing.bean.task.GetTaskInfoBean;
+import com.snsoft.memorizing.bean.task.GetHistoryInfoBean;
 import com.snsoft.memorizing.mapper.user.GetHistoryMapper;
 
 /**
@@ -25,7 +25,7 @@ public class GetHistoryService {
 	@Autowired(required = false)
 	GetHistoryMapper mapper;
 
-	public List<GetTaskInfoBean> getHistory(String account) {
+	public List<GetHistoryInfoBean> getHistory(String account) {
 		return mapper.getTaskId(account);
 	}
 }

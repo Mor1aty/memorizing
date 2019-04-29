@@ -16,13 +16,13 @@ public class GetFileInfoBean {
 	private int id;
 	private String fileName;
 	private String fileLocation;
-	private int type;
 	private String gmtCreate;
 
+	
 	@Override
 	public String toString() {
-		return "GetFileInfoBean [id=" + id + ", fileName=" + fileName + ", fileLocation=" + fileLocation + ", type="
-				+ type + ", gmtCreate=" + gmtCreate + "]";
+		return "GetFileInfoBean [id=" + id + ", fileName=" + fileName + ", fileLocation=" + fileLocation
+				+ ", gmtCreate=" + gmtCreate + "]";
 	}
 
 	public int getId() {
@@ -47,14 +47,6 @@ public class GetFileInfoBean {
 
 	public void setFileLocation(String fileLocation) {
 		this.fileLocation = fileLocation;
-	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
 	}
 
 	public String getGmtCreate() {

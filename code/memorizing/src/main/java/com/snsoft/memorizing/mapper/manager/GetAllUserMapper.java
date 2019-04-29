@@ -3,7 +3,7 @@ package com.snsoft.memorizing.mapper.manager;
 import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
-import com.snsoft.memorizing.bean.manager.GetManagerInfoBean;
+import com.snsoft.memorizing.bean.user.GetUserInfoBean;
 
 /**
  * 
@@ -24,5 +24,5 @@ public interface GetAllUserMapper {
 
 	// 通过管理员获取所有用户
 	@Select("SELECT account,nickname,gender,age,portrait,score FROM user")
-	public List<GetManagerInfoBean> getAllUser();
+	public List<GetUserInfoBean> getAllUser();
 }

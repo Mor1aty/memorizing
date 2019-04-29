@@ -1,11 +1,9 @@
 package com.snsoft.memorizing.service.task;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.snsoft.memorizing.bean.task.GetTask_StageInfoBean;
+import com.snsoft.memorizing.bean.task.GetCurrentSmallTaskInfoBean;
 import com.snsoft.memorizing.mapper.task.GetCurrentSmallTaskMapper;
 
 /**
@@ -25,7 +23,7 @@ public class GetCurrentSmallTaskService {
 	@Autowired(required = false)
 	GetCurrentSmallTaskMapper mapper;
 
-	public List<GetTask_StageInfoBean> getCurrentSmallTask(int task) {
+	public GetCurrentSmallTaskInfoBean getCurrentSmallTask(int task) {
 		return mapper.getCurrentSmallTask(task);
 	}
 }

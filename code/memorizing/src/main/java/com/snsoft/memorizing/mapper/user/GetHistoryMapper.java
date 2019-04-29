@@ -17,10 +17,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.snsoft.memorizing.bean.task.GetTaskInfoBean;
+import com.snsoft.memorizing.bean.task.GetHistoryInfoBean;
 
 public interface GetHistoryMapper {
 	// 根据账号获取用户的历史任务
 	@Select("SELECT task.id,content,file_location AS file,task.gmt_Create,task.gmt_End,task.is_Use FROM history LEFT JOIN task ON history.task=task.id LEFT JOIN attach ON task.file = attach.id  WHERE history.user=#{account}")
-	public List<GetTaskInfoBean> getTaskId(String account);
+	public List<GetHistoryInfoBean> getTaskId(String account);
 }

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snsoft.memorizing.bean.user.GetUserInfoBean;
+import com.snsoft.memorizing.bean.task.GetUserRankingInfoBean;
 import com.snsoft.memorizing.service.task.GetUserRankingService;
 import com.snsoft.memorizing.utils.AllConstant;
 import com.snsoft.memorizing.utils.JsonUtil;
@@ -36,7 +36,7 @@ public class GetUserRankingController {
 		// 返回结果
 		String result = "";
 		try {
-			List<GetUserInfoBean> list = service.getUserRanking(session.getAttribute("loginmark").toString());
+			List<GetUserRankingInfoBean> list = service.getUserRanking(session.getAttribute("loginmark").toString());
 			if (list == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败");
 			} else {
