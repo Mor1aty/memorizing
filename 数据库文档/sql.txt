@@ -8,16 +8,20 @@ CREATE TABLE attach(
 	type TINYINT UNSIGNED NOT NULL COMMENT '文件类型（0为头像，1为文件）',
 	gmt_create DATETIME NOT NULL COMMENT '创建时间'
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `attach` VALUES ('1', 'we', 'rt', '0', '2019-04-24 20:23:22');
 /*任务表*/
 CREATE TABLE task(
 	id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT COMMENT '任务id',
 	content TEXT NOT NULL COMMENT '任务内容',
 	file BIGINT UNSIGNED NOT NULL COMMENT '任务文件',
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
-	gmt_end DATETIME NOT NULL COMMENT '结束时间',
+	gmt_end DATETIME COMMENT '结束时间',
 	is_use TINYINT UNSIGNED NOT NULL COMMENT '使用标记',
 	CONSTRAINT fk_task_attach FOREIGN KEY(file) REFERENCES attach(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `task` VALUES ('1', '是的', '1', '2019-12-02 00:00:00', '2019-12-24 00:00:00', '1');
+INSERT INTO `task` VALUES ('2', '是的', '1', '2019-04-28 11:20:33', '2019-04-28 11:20:33', '0');
+INSERT INTO `task` VALUES ('3', '是的', '1', '2019-04-28 11:24:13', '2019-04-28 11:24:13', '0');
 /*用户表*/
 CREATE TABLE `user`(
 	account VARCHAR(30) PRIMARY KEY COMMENT '帐号',
@@ -32,6 +36,7 @@ CREATE TABLE `user`(
 	CONSTRAINT fk_user_attach FOREIGN KEY(portrait) REFERENCES attach(id),
 	CONSTRAINT fk_user_task FOREIGN KEY(task) REFERENCES task(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `user` VALUES ('2016188', '45678', 'as', '0', '56', '1', '1', '0', '2019-04-24 20:59:53');
 /*管理员表*/
 CREATE TABLE manager(
 	account VARCHAR(30) PRIMARY KEY COMMENT '帐号',
@@ -39,6 +44,7 @@ CREATE TABLE manager(
 	nickname VARCHAR(30) NOT NULL COMMENT '昵称',
 	gmt_create DATETIME NOT NULL COMMENT '注册时间'
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `manager` VALUES ('20171510', '789', '12', '2019-04-28 18:49:52');
 
 /*任务重点表*/
 CREATE TABLE `key`(
@@ -48,6 +54,7 @@ CREATE TABLE `key`(
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
 	CONSTRAINT fk_key_task FOREIGN KEY(task) REFERENCES task(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `key` VALUES ('1', '1', '重点', '2019-04-28 11:55:57');
 
 /*文件分类表*/
 CREATE TABLE classify(
@@ -57,6 +64,7 @@ CREATE TABLE classify(
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
 	CONSTRAINT fk_classify_user FOREIGN KEY(`user`) REFERENCES `user`(account)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `classify` VALUES ('1', 'kj', '2016188', '2012-03-21 00:00:00');
 
 /*阶段任务表*/
 CREATE TABLE task_stage(
@@ -65,10 +73,11 @@ CREATE TABLE task_stage(
 	task BIGINT UNSIGNED NOT NULL COMMENT '大任务',
 	step TINYINT UNSIGNED NOT NULL COMMENT '所属阶段',
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
-	gmt_end DATETIME NOT NULL COMMENT '结束时间',
+	gmt_end DATETIME COMMENT '结束时间',
 	is_use TINYINT UNSIGNED NOT NULL COMMENT '使用标记',
 	CONSTRAINT fk_stage_task FOREIGN KEY(task) REFERENCES task(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `task_stage` VALUES ('1', '阿三', '1', '2', '2019-02-03 00:00:00', '2019-02-05 00:00:00', '0');
 
 /*任务填空表*/
 CREATE TABLE task_blank(
@@ -78,6 +87,8 @@ CREATE TABLE task_blank(
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
 	CONSTRAINT fk_blank_stage FOREIGN KEY(task_stage) REFERENCES task_stage(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `task_blank` VALUES ('2', '任务', '1', '2019-04-28 12:42:34');
+INSERT INTO `task_blank` VALUES ('3', '填空', '1', '2019-04-28 20:59:25');
 
 /*推送消息表*/
 CREATE TABLE message(
@@ -103,10 +114,11 @@ CREATE TABLE history(
 	task BIGINT UNSIGNED NOT NULL COMMENT '任务',
 	is_finish TINYINT UNSIGNED NOT NULL COMMENT '任务完成标记，1为完成，0为未完成',
 	`user` VARCHAR(30) NOT NULL COMMENT '任务人',
-	gmt_finish DATETIME NOT NULL COMMENT '完成时间',
+	gmt_finish DATETIME COMMENT '完成时间',
 	CONSTRAINT fk_history_user FOREIGN KEY(`user`) REFERENCES `user`(account),
 	CONSTRAINT fk_history_task FOREIGN KEY(task) REFERENCES task(id)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `history` VALUES ('1', '1', '1', '2016188', '2019-04-25 16:52:42');
 
 /*成就表*/
 CREATE TABLE achievement(
@@ -117,3 +129,5 @@ CREATE TABLE achievement(
 	gmt_create DATETIME NOT NULL COMMENT '创建时间',
 	CONSTRAINT fk_achievement_manager FOREIGN KEY(creator) REFERENCES manager(account)
 )CHARSET utf8 ENGINE INNODB;
+INSERT INTO `achievement` VALUES ('1', '1', '任务全部完成', '20171510', '2019-04-28 20:43:20');
+INSERT INTO `achievement` VALUES ('2', '1', 'as', '20171510', '2019-04-29 15:51:22');
