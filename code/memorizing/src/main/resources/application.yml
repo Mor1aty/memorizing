@@ -6,9 +6,9 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    url: jdbc:mysql://47.107.237.244:3306/memorizing?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
-    password: root
-    username: root
+    url: jdbc:mysql://****:3306/memorizing?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    password: xxxx
+    username: xxxx
     driver-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
     # 下面为连接池的补充设置，应用到上面所有数据源中
