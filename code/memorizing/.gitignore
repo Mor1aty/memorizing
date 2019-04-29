@@ -1,7 +1,7 @@
 HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-*.yml
+
 ### STS ###
 .apt_generated
 .classpath
@@ -16,6 +16,7 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+*.yml
 
 ### NetBeans ###
 /nbproject/private/
