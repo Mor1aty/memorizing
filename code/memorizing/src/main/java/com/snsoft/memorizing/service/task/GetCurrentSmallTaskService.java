@@ -1,5 +1,7 @@
 package com.snsoft.memorizing.service.task;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class GetCurrentSmallTaskService {
 	@Autowired(required = false)
 	GetCurrentSmallTaskMapper mapper;
 
-	public GetCurrentSmallTaskInfoBean getCurrentSmallTask(int task) {
+	public List<GetCurrentSmallTaskInfoBean> getCurrentSmallTask(int task) {
 		return mapper.getCurrentSmallTask(task);
 	}
 }

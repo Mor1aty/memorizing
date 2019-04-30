@@ -1,7 +1,5 @@
 package com.snsoft.memorizing.service.task;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +23,7 @@ public class GetCurrentTaskService {
 	@Autowired(required = false)
 	GetCurrentTaskMapper mapper;
 
-	public List<GetCurrentTaskInfoBean> getCurrentTask(String account) {
+	public GetCurrentTaskInfoBean getCurrentTask(String account) {
 
 		return mapper.getCurrentTask(account);
 

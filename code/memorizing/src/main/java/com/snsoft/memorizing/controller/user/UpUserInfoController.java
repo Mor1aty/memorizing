@@ -40,7 +40,7 @@ public class UpUserInfoController {
 			// 解析请求参数
 			HashMap<String, String> params = JsonUtil.getRequestParams(request);
 			// 参数校验
-			result = HttpUtil.checkParams(params, new String[] { "nickname", "gender", "age", "account" });
+			result = HttpUtil.checkParams(params, new String[] { "nickname", "gender", "age" });
 			// 校验不通过，适用于需要请求参数的情况
 			if (!"".equals(result.trim())) {
 				return result;

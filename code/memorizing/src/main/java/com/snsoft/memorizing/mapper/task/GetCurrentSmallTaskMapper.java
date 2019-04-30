@@ -1,5 +1,7 @@
 package com.snsoft.memorizing.mapper.task;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Select;
 
 import com.snsoft.memorizing.bean.task.GetCurrentSmallTaskInfoBean;
@@ -17,6 +19,6 @@ import com.snsoft.memorizing.bean.task.GetCurrentSmallTaskInfoBean;
  * @Description TODO 获取当前阶段任务接口Mapper
  */
 public interface GetCurrentSmallTaskMapper {
-	@Select("SELECT task_stage.id,task_stage.content,task_stage.step,task_stage.gmt_create,task_stage.gmt_end FROM task_stage LEFT JOIN task ON task_stage.task=task.id LEFT JOIN user ON user.task=task.id WHERE task.id=#{id}")
-	public GetCurrentSmallTaskInfoBean getCurrentSmallTask(int id);
+	@Select("SELECT id,content,step,gmt_create,gmt_end FROM task_stage WHERE task_stage.task=#{id}")
+	public List<GetCurrentSmallTaskInfoBean> getCurrentSmallTask(int id);
 }

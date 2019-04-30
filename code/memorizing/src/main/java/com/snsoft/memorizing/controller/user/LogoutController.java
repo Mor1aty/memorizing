@@ -35,7 +35,7 @@ public class LogoutController {
 			if (account == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "注销失败");
 			} else {
-				session.removeAttribute("loginamrk");
+				session.removeAttribute("loginmark");
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_SUCCESS, "注销成功");
 			}
 

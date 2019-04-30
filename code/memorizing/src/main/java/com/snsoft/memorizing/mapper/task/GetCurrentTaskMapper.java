@@ -1,7 +1,5 @@
 package com.snsoft.memorizing.mapper.task;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Select;
 
 import com.snsoft.memorizing.bean.task.GetCurrentTaskInfoBean;
@@ -20,5 +18,5 @@ import com.snsoft.memorizing.bean.task.GetCurrentTaskInfoBean;
  */
 public interface GetCurrentTaskMapper {
 	@Select("SELECT task.id,task.content,task.file,task.gmt_create FROM task LEFT JOIN user ON user.task=task.id WHERE user.account=#{account} ")
-	public List<GetCurrentTaskInfoBean> getCurrentTask(String account);
+	public GetCurrentTaskInfoBean getCurrentTask(String account);
 }

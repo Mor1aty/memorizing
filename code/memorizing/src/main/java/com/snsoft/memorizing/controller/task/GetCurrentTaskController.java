@@ -1,7 +1,5 @@
 package com.snsoft.memorizing.controller.task;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -36,7 +34,7 @@ public class GetCurrentTaskController {
 		// 返回结果
 		String result = "";
 		try {
-			List<GetCurrentTaskInfoBean> list = service.getCurrentTask(session.getAttribute("loginmark").toString());
+			GetCurrentTaskInfoBean list = service.getCurrentTask(session.getAttribute("loginmark").toString());
 			if (list == null) {
 				result = JsonUtil.jsonResponse(null, AllConstant.CODE_ERROR, "获取失败");
 			} else {

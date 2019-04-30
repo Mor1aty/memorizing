@@ -1,6 +1,8 @@
 package com.snsoft.memorizing.controller.task;
 
 import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -46,7 +48,7 @@ public class GetCurrentSmallTaskController<E> {
 				return result;
 			}
             
-			GetCurrentSmallTaskInfoBean list= service.getCurrentSmallTask(Integer.parseInt(params.get("task")));
+			List<GetCurrentSmallTaskInfoBean> list= service.getCurrentSmallTask(Integer.parseInt(params.get("task")));
 
 			result = JsonUtil.jsonResponse(list, AllConstant.CODE_SUCCESS, "获取成功");
 		} catch (Exception e) {
